@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<style type="text/css">
+		#cor {
+			font-weight: bold ;
+		}
+	</style>
+</head>
+<body>
+<div id="cor"></div>
+<div id="percentage"></div>
+
+<script type="text/javascript">
+	qNum = prompt("How many Questions do you want?"); 
+	var bool =false ; 
+	if(qNum > 0 ){
+		bool = true; 
+	}
+	var arr = new Array(10); 
+	var ran = new Array();
+	while(ran.length < 10){
+    var r = Math.floor(Math.random() * 10) ;
+    if(ran.indexOf(r) === -1) {
+    	ran.push(r);
+    }
+}
+	//creating 2d array
+	for (var i = 0; i<arr.length;i++){
+		arr[i]= new Array(4); 
+	}
+	var correct = new Array(10); 
+	correct[0] = "Dhaka" ;  
+	correct[1] = "Lily" ; 
+	correct[2] = "Jack Fruit" ; 
+	correct[3] = "Sheikh Hasina" ; 
+	correct[4] = "Jeff Bezos" ; 
+	correct[5] = "Bill Gates" ; 
+	correct[6] = "Mark Zuckerberg" ; 
+	correct[7] = "Elon Musk" ; 
+	correct[8] = "2001" ;
+	correct[9] = "Sultan's Dines" ; 
+
+
+  
+	arr[0][0]="What is the captial of Bangladesh?" ;
+	arr[0][1]="A. Dhaka" ; 
+	arr[0][2]="B. Sylhet" ; 
+	arr[0][3]="C. Barisal" ;
+
+	arr[1][0]="What is the national flower of Bangladesh?" ;
+	arr[1][1]="A. Rose" ; 
+	arr[1][2]="B. MarieGold" ; 
+	arr[1][3]= "C. Lily" ;
+
+	arr[2][0]="What is the national Fruit of Bangladesh?" ;
+	arr[2][1]="A. Jack Fruit" ; 
+	arr[2][2]="B. Pineapple" ; 
+	arr[2][3] ="C. Apple " ;
+
+	arr[3][0]="Who is the Prime Minister of Bangladesh?" ;
+	arr[3][1]="A. Adv. Abdul Hamid" ; 
+	arr[3][2]="B. Sheikh Hasina" ; 
+	arr[3][3] ="C. Begum Khaleda Zia " ;
+
+	arr[4][0]="Who is the Chairperson of Amazon?" ;
+	arr[4][1]="A. Jeff Bezos" ; 
+	arr[4][2]="B. Mark Zuckerberg" ; 
+	arr[4][3] ="C. Bill Gates " ;
+
+	arr[5][0]="Who is the Chairperson of Microsoft?" ;
+	arr[5][1]="A. Jeff Bezos" ; 
+	arr[5][2]="B. Mark Zuckerberg" ; 
+	arr[5][3] ="C. Bill Gates " ;
+
+	arr[6][0]="Who is the Chairperson of Facebook?" ;
+	arr[6][1]="A. Jeff Bezos" ; 
+	arr[6][2]="B. Mark Zuckerberg" ; 
+	arr[6][3] ="C. Bill Gates " ;
+
+	arr[7][0]="Who is the Chairperson of SpaceX?" ;
+	arr[7][1]="A. Jeff Bezos" ; 
+	arr[7][2]="B. Elon Musk" ; 
+	arr[7][3] ="C. Bill Gates " ;
+	
+	arr[8][0]="When was the BRAC University established?" ;
+	arr[8][1]="A. 2003" ; 
+	arr[8][2]="B. 2002" ; 
+	arr[8][3] ="C. 2001 " ;
+  	
+  	arr[9][0]="Which is the best kacchi place?" ;
+	arr[9][1]="A. Kacchi Bhai" ; 
+	arr[9][2]="B. Kolkata Kacchi" ; 
+	arr[9][3] ="C. Sultan's Dines" ;
+	var crct = 0; 
+
+	if (bool){
+	for(var i =0; i<qNum;i++){
+		var j = 0 ; 	
+		var answer = prompt(arr[ran[i]][j]+"\n" +arr[ran[i]][j+1]+"\n"+arr[ran[i]][j+2]+"\n"+arr[ran[i]][j+3]+"\n" );
+
+	if(answer.toLowerCase() == correct[ran[i]].toLowerCase()){
+		crct++ ; 
+		document.getElementById('cor').innerHTML += arr[ran[i]][0]+"<br/>"+"You Guessed: "+answer+"<br/>"+"CORRECT"+"<br/><br/>" ; 
+	}
+	else{
+		document.getElementById('cor').innerHTML += arr[ran[i]][0]+"<br/>"+"You Guessed: "+answer+"<br/>"+"INCORRECT"+"<br/><br/>" ; 
+	}
+}
+var percntg = (crct * 100 ) / qNum ; 
+document.getElementById('percentage').innerHTML = "You Got "+crct+" answers corrected from "+qNum+" Questions "+"("+ percntg+")%"; 
+}
+else {
+	for(var i =0; i<5;i++){
+		var j = 0 ; 	
+		var answer = prompt(arr[ran[i]][j]+"\n" +arr[ran[i]][j+1]+"\n"+arr[ran[i]][j+2]+"\n"+arr[ran[i]][j+3]+"\n" );
+
+	if(answer.toLowerCase() == correct[ran[i]].toLowerCase()){
+		crct++ ; 
+		document.getElementById('cor').innerHTML += arr[ran[i]][0]+"<br/>"+"You Guessed: "+answer+"<br/>"+"CORRECT"+"<br/><br/>" ; 
+	}
+	else{
+		document.getElementById('cor').innerHTML += arr[ran[i]][0]+"<br/>"+"You Guessed: "+answer+"<br/>"+"INCORRECT"+"<br/><br/>" ; 
+	}
+}
+var percntg = (crct * 100 ) / 5 ; 
+document.getElementById('percentage').innerHTML = "You Got "+crct+" answers corrected from "+5+" Questions "+"("+ percntg+")%"; 
+
+}
+
+</script>
+
+</body>
+</html>
